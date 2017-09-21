@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+  <h1>Intent, Bundle 인자 전달하기</h1>
+  <h2>액티비티를 시작하면서 인자를 보내고자 할때 사용하는 intent. Bundle은 왜 필요한가?</h2>
+  intent : 저장이 아닌 전달하는 수단으로의 객체
+  bundle : 상태/값 등을 저장하기 위한 객체
+
+  Intent, Bundle, Parcelable 어떠한 것을 사용하여도 동일하게 구현 가능
+  위 3가지는 모두 Parcelable 을 inherited 한 것이므로 근본적으로는 3가지 모두 공통된 기능을 수행할 수 있습니다.
+
+  Intent - primitive data type 만 가능
+  reference type을 보내려면 putParcelableArrayListExtra를 사용하여 data array 형태로 전달 가능
+
+  Bundle
+  일종의 Map 클래스
+  기본타입인 int, double, long, String 부터 FloatArray, StringArrayList Serializable, Parcelable 구현한 객체를 전송한다.
+  savedInstanceState : 시스템 제약 조건으로 인해 액티비티를 소멸한 경우 메스드에 의해 가장 최근에 공급된 데이터(인스턴스)를 포함합니다
+  ex) savedInstanceState의 사용
+    전역변수 보관하기 위해
+    사용자가 화면을 회전할 때마다 액티비티가 소멸되고 재생성됩니다
+    다른 액티비티로 인해 가려졌다가 다시 호출되는 경우
+    pause 된 상태에서 자원부족으로 인해 System에서 삭제되고 다시 복구 되는 과정에서 사용된다.
+
+  Bundle의 장점
+  Activity 등에서 Bundle이 기본으로 사용이 되므로
+  onCreate,onResume 등 라이프사이클 관련으로 사용시에는 Bundle 형태로 전달된 것이 사용하기 유용
+  이전의 액티비티에서 새로운 액티비티로 전환되었을때 이전 액티비티의 상태에 대한 정보를 Bundle이 가지고 있다고 한다.
+
+</body>
+</html>
