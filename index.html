@@ -10,42 +10,21 @@
 </head>
 <body>
   <div class="container">
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Woody's Developer Blog</a>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div id="navbar" class="collapse navbar-collapse" >
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
 
     <div class="container-fluid">
       <!-- 캘린더, 프로필, 관심사, 최근 기록 10개 -->
       <div class="row content">
         <div class="col-sm-3 sidenav">
-          <div class="well" style="max-width:200px">
+          <div class="well" style="max-width:250px">
             <img class="img-circle img-thumbnail" src="img/profile.png" alt="Profile Img">
-            <div class="card-body">
+            <div class="card-block">
               <h4 class="card-title">Lee Dong Seok</h4>
-              <p>dongseok3103@gmail.com</p>
+              <p class="card-text">dongseok3103@gmail.com</p>
               <a href="#" class="btn btn-primary">About</a>
             </div>
           </div>
 
-          <div class="well" style="max-width:200px">
+          <div class="well" style="max-width:250px">
             <div class="card-body">
               <span class="label label-primary">Android</span>
               <span class="label label-default">Web</span>
@@ -56,8 +35,37 @@
         </div>
 
         <div class="col-sm-9">
+          <div class="calendar container-fluid well" style="background-color:white;">
+            <p class="well" style="padding:10px; margin-bottom:2px;">
+              <span class="glyphicon glyphicon-calendar"></span> Caelndar
+            </p>
 
-        </div>
+            <div class="calendar-body">
+              <div class="container-fluid" id="site-calendar" style="padding:10px;">
+                <table class="table table-bordered text-center" style="table-layout:fixed;">
+                  <tr>
+                    <td><span href="#" class="glyphicon glyphicon-chevron-left"></span></td>
+                    <td colspan="5" class="text-center">December 2017</td>
+                    <td><span href="#" class="glyphicon glyphicon-chevron-right"></span></td>
+                  </tr>
+                  <tr class="success">
+                    <td>Sun</td>
+                    <td>Mon</td>
+                    <td>Tue</td>
+                    <td>Wed</td>
+                    <td>Thu</td>
+                    <td>Fri</td>
+                    <td>Sat</td>
+                  </tr>
+                  <tr class="calendar-day">
+                    <td><h5>1</h5><h6 class="text-muted">23개</h6></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div> <!-- calendar -->
+
+        </div>  <!-- Main Row -->
       </div>
     </div>
 
@@ -65,5 +73,8 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+  <script src="nav.js"></script>
+  <script src="js/calendar.js"></script>
+
 </body>
 </html>
