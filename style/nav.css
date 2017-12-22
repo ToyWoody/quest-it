@@ -6,3 +6,7 @@ body {
 table tr.calendar-day td:hover{
   background-color: #f5f5f5;
 }
+
+table tr.calendar-day td.today{
+	color: blue;
+}

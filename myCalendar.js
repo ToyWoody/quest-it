@@ -75,7 +75,27 @@ $.fn.woody_calendar = function(){
       $tableBody.append($dayOfWeekHeadrObj);
       // draw appendDaysOfMonth
       drawDayOfMonth($tableBody, initYear, initMonth);
-
+	 	
+	  $prevMonthNav.click(function(e){
+		  initMonth -= 1;
+		  if(initMonth == -1){
+			  initMonth = 11;
+			  initYear -= 1;
+		  }
+		  drawMonthLabel($currentMonthLabel, initYear, initMonth);
+		  drawDayOfMonth($tableBody, initYear, initMonth);
+	  });
+	  
+	  $nextMonthNav.click(function(e){
+		  initMonth += 1;
+		  if(initMonth == 12){
+			  initMonth = 0;
+			  initYear += 1;
+		  }
+		  drawMonthLabel($currentMonthLabel, initYear, initMonth);
+		  drawDayOfMonth($tableBody, initYear, initMonth);
+	  });
+	  
       $tableObj.append($tableBody);
       $calendarElement.append($tableObj);
   }
@@ -92,11 +112,7 @@ $.fn.woody_calendar = function(){
       var firstDow = calcDayOfWeek(year, month, 1);
       var lastDow = calcDayOfWeek(year, month, lastDayinMonth);
       var currDayOfMonth = 1;
-	  
-	  console.log("weeksInMonth : " + weeksInMonth );
-	  console.log("lastDayinMonth : " + lastDayinMonth );
-	  console.log("firstDow : " + firstDow );
-	  console.log("lastDow : " + lastDow );
+	  var today = new Date();
 
       for (var wk = 0; wk < weeksInMonth; wk++) {
 		  var $dowRow = $('<tr class="calendar-day"></tr>');
@@ -104,7 +120,13 @@ $.fn.woody_calendar = function(){
               if (dow < firstDow || currDayOfMonth > lastDayinMonth) {
                   $dowRow.append('<td></td>');
               } else {
-                  var $dowElement = $('<td><h5>' + currDayOfMonth + '</h5></td>');
+				  var $dowElement = $('<td><h5>' + currDayOfMonth + '</h5></td>');
+				  if(today.getFullYear() == year
+					&& today.getMonth() == month
+					&& today.getDate() == currDayOfMonth){
+					  console.log("today");
+					  $dowElement.addClass("today");
+				  }
                   $dowRow.append($dowElement);
                   currDayOfMonth++;
               }
@@ -147,7 +169,7 @@ $.fn.woody_calendar = function(){
       }
       return dow;
   }
-
+	
   function checkValidDate(y, m, d) {
       return m > 0 && m < 13 && y > 0 && y < 32768 && d > 0 && d <= (new Date(y, m, 0)).getDate();
   }
@@ -156,6 +178,6 @@ $.fn.woody_calendar = function(){
 }
 
 // window.onload 를 대처하는 방법
-$(document).ready(function(){
+jQuery(document).ready(function(){
   $("div#my-calendar").woody_calendar();
 });
