@@ -1,0 +1,38 @@
+div.activity-container {
+	width: 90%;
+	margin: 0 auto;
+}
+
+div.timeline-item {
+	padding: 3em 2em 2em;
+	position: relative;
+	color: rgba(black, .7);
+	border-left: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+div.timeline-item::before{
+	content: attr(date-is);
+	position: absolute;
+	left: 2em;
+	top: 1em;
+	display: block;
+}
+
+div.timeline-item::after{
+	width: 10px;
+	height: 10px;
+	display: block;
+	top: 1em;
+	position: absolute;
+	left: -7px;
+	border-radius: 10px;
+	content: '';
+	border: 2px solid rgba(0, 0, 0, 0.3);
+	background: white;
+}
+
+div.timeline-item:last-child {
+  -o-border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 60%, rgba(0, 0, 0, 0)) 1 100%;
+     border-image: -webkit-gradient(linear, left top, left bottom, color-stop(60%, rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0))) 1 100%;
+     border-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 60%, rgba(0, 0, 0, 0)) 1 100%;
+}
